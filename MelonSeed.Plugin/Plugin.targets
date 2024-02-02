@@ -1,0 +1,13 @@
+﻿<Project>
+    <Target Name="AutoInstall" AfterTargets="PostBuildEvent">
+        <Copy SourceFiles="$(OutputPath)\$(AssemblyName).dll;$(OutputPath)\$(AssemblyName).pdb"
+              DestinationFolder="$(GameDir)\Mods" />
+
+        <Copy SourceFiles="$(OutputPath)\$(AssemblyName).xml"
+              DestinationFolder="$(GameDir)\Mods"
+              Condition="Exists('$(OutputPath)\$(AssemblyName).xml')" />
+
+        <Message Text="Finished copying files to $(GameDir)\Mods\"
+                 Importance="high" />
+    </Target>
+</Project>
