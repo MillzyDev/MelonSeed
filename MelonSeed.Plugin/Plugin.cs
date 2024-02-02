@@ -6,12 +6,12 @@ namespace MelonSeed.Plugin
     {
         public override void OnApplicationEarlyStart()
         {
-            // load dll thingy
+            MelonSeed.Init();
         }
 
         public override void OnPreModsLoaded()
         {
-            // thingyyyy
+            MelonSeed.LateInit();
         }
     }
 }
