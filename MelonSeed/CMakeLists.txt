@@ -24,6 +24,9 @@ MACRO(RECURSE_FILES return_list filter)
     SET(${return_list} ${file_list})
 ENDMACRO()
 
+file(READ game_path.txt GAME_PATH)
+file(READ unity_path.txt UNITY_PATH)
+
 RECURSE_FILES(cpp_file_list ${SOURCE_DIR}/*.cpp)
 RECURSE_FILES(c_file_list ${SOURCE_DIR}/*.c)
 
@@ -42,4 +45,13 @@ target_include_directories(${COMPILE_ID} PUBLIC ${SHARED_DIR})
 target_compile_definitions(${COMPILE_ID} PUBLIC MELON_SEED_EXPORTS)
 
 add_subdirectory(Dobby)
-target_link_libraries(${COMPILE_ID} PRIVATE dobby)
+target_link_libraries(${COMPILE_ID} PUBLIC dobby)
+
+target_include_directories(${COMPILE_ID} PUBLIC "${UNITY_PATH}/Editor/Data/il2cpp/libil2cpp")
+target_link_libraries(${COMPILE_ID} PUBLIC "${GAME_PATH}/GameAssembly.dll")
+
+if (MSVC)
+    cmake_path(GET CMAKE_CXX_COMPILER PARENT_PATH VC_PATH)
+
+    # TODO: Use libgen script
+endif ()
