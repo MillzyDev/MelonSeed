@@ -11,3 +11,7 @@ CTestTestfile.cmake
 _deps
 cmake-build-debug
 .idea
+
+# User files
+game_path.txt
+unity_path.txt
