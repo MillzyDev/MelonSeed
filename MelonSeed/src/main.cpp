@@ -1,11 +1,13 @@
 #include <windows.h>
 
+#include <iostream>
+
 #define SEED_API extern "C" __declspec(dllexport)
 
 SEED_API void Init() {
-    MessageBoxA(nullptr, "Inited", "Inited", MB_OK);
+    std::cout << "Hi from C++!";
 }
 
 SEED_API void LateInit() {
-    MessageBoxA(nullptr, "Late Inited", "Late Inited", MB_OK);
+    std::cout << "Hello again from C++!";
 }
