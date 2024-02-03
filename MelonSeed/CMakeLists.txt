@@ -40,3 +40,6 @@ target_include_directories(${COMPILE_ID} PRIVATE ${INCLUDE_DIR})
 target_include_directories(${COMPILE_ID} PUBLIC ${SHARED_DIR})
 
 target_compile_definitions(${COMPILE_ID} PUBLIC MELON_SEED_EXPORTS)
+
+add_subdirectory(Dobby)
+target_link_libraries(${COMPILE_ID} PRIVATE dobby)
