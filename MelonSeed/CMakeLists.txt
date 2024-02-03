@@ -48,10 +48,4 @@ add_subdirectory(Dobby)
 target_link_libraries(${COMPILE_ID} PUBLIC dobby)
 
 target_include_directories(${COMPILE_ID} PUBLIC "${UNITY_PATH}/Editor/Data/il2cpp/libil2cpp")
-target_link_libraries(${COMPILE_ID} PUBLIC "${GAME_PATH}/GameAssembly.dll")
-
-if (MSVC)
-    cmake_path(GET CMAKE_CXX_COMPILER PARENT_PATH VC_PATH)
-
-    # TODO: Use libgen script
-endif ()
+target_link_libraries(${COMPILE_ID} PUBLIC "${GAME_PATH}/GameAssembly.lib")
