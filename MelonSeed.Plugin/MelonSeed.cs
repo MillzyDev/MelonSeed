@@ -7,7 +7,4 @@ public static class MelonSeed
 {
     [DllImport("MelonSeed/MelonSeed.dll", CharSet = CharSet.Auto, SetLastError = true)]
     public static extern void Init();
-
-    [DllImport("MelonSeed/MelonSeed.dll", CharSet = CharSet.Auto, SetLastError = true)]
-    public static extern void LateInit();
 }

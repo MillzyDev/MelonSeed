@@ -4,14 +4,9 @@ namespace MelonSeed.Plugin
 {
     public class Plugin : MelonPlugin
     {
-        public override void OnApplicationEarlyStart()
+        public override void OnPreInitialization()
         {
             MelonSeed.Init();
-        }
-
-        public override void OnPreModsLoaded()
-        {
-            MelonSeed.LateInit();
         }
     }
 }
