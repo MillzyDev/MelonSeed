@@ -1,11 +1,9 @@
 set(COMPILE_ID MelonSeed)
 
 cmake_minimum_required(VERSION 3.27)
-project(MelonSeed)
+project(${COMPILE_ID})
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS  ON)
-
-message(STATUS "${CMAKE_CXX_COMPILER}")
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED 20)
@@ -26,6 +24,8 @@ ENDMACRO()
 
 file(READ game_path.txt GAME_PATH)
 file(READ unity_path.txt UNITY_PATH)
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${GAME_PATH}/${COMPILE_ID}")
 
 RECURSE_FILES(cpp_file_list ${SOURCE_DIR}/*.cpp)
 RECURSE_FILES(c_file_list ${SOURCE_DIR}/*.c)
