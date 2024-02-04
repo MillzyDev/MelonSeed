@@ -7,7 +7,7 @@
               DestinationFolder="$(GameDir)\Plugins"
               Condition="Exists('$(OutputPath)\$(AssemblyName).xml')" />
 
-        <Message Text="Finished copying files to $(GameDir)\Mods\"
+        <Message Text="Finished copying files to $(GameDir)\Plugins\"
                  Importance="high" />
     </Target>
 </Project>
