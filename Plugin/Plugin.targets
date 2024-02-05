@@ -1,0 +1,13 @@
+﻿<Project>
+    <Target Name="AutoInstall" AfterTargets="PostBuildEvent">
+        <Copy SourceFiles="$(OutputPath)\$(AssemblyName).dll;$(OutputPath)\$(AssemblyName).pdb"
+              DestinationFolder="$(GameDir)\Plugins" />
+
+        <Copy SourceFiles="$(OutputPath)\$(AssemblyName).xml"
+              DestinationFolder="$(GameDir)\Plugins"
+              Condition="Exists('$(OutputPath)\$(AssemblyName).xml')" />
+
+        <Message Text="Finished copying files to $(GameDir)\Plugins\"
+                 Importance="high" />
+    </Target>
+</Project>
