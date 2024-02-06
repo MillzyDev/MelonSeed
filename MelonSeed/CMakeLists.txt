@@ -6,7 +6,6 @@ project(${COMPILE_ID})
 set(CMAKE_EXPORT_COMPILE_COMMANDS  ON)
 
 set(CMAKE_SHARED_LIBRARY_PREFIX "")
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/bin")
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED 20)
@@ -32,8 +31,6 @@ ENDMACRO()
 file(READ game_path.txt GAME_PATH)
 file(READ unity_path.txt UNITY_PATH)
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${GAME_PATH}/${COMPILE_ID}")
-
 RECURSE_FILES(cpp_file_list ${SOURCE_DIR}/*.cpp)
 RECURSE_FILES(c_file_list ${SOURCE_DIR}/*.c)
 
@@ -43,6 +40,9 @@ add_library(
         ${cpp_file_list}
         ${c_file_list}
 )
+
+# static here means we dont need to include libc
+target_link_options(${COMPILE_ID} PUBLIC -static)
 
 target_include_directories(${COMPILE_ID} PRIVATE .)
 target_include_directories(${COMPILE_ID} PRIVATE ${SOURCE_DIR})
