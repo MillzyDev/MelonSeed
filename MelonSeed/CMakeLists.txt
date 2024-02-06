@@ -5,6 +5,8 @@ project(${COMPILE_ID})
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS  ON)
 
+set(CMAKE_SHARED_LIBRARY_PREFIX "")
+
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED 20)
 
@@ -48,4 +50,4 @@ add_subdirectory(Dobby)
 target_link_libraries(${COMPILE_ID} PUBLIC dobby)
 
 target_include_directories(${COMPILE_ID} PUBLIC "${UNITY_PATH}/Editor/Data/il2cpp/libil2cpp")
-target_link_libraries(${COMPILE_ID} PUBLIC "${GAME_PATH}/GameAssembly.lib")
+target_link_libraries(${COMPILE_ID} PUBLIC "${GAME_PATH}/GameAssembly.dll")
