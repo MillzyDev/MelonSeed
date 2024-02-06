@@ -10,5 +10,10 @@ namespace MelonSeed
             // TODO: Load LLVM std lib stuff
             // TODO: Initialise MelonSeed
         }
+
+        public override void OnLateInitializeMelon()
+        {
+            base.OnLateInitializeMelon();
+        }
     }
 }
