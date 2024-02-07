@@ -86,3 +86,5 @@ endif ()
 
 target_include_directories(${COMPILE_ID} PUBLIC "${UNITY_PATH}/Editor/Data/il2cpp/libil2cpp")
 target_link_libraries(${COMPILE_ID} PUBLIC "${GAME_PATH}/GameAssembly.dll")
+
+target_include_directories(${COMPILE_ID} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/termcolor/include")
