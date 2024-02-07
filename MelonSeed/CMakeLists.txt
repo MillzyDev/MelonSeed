@@ -54,6 +54,10 @@ target_compile_definitions(${COMPILE_ID} PUBLIC MELON_SEED_EXPORTS)
 add_subdirectory(Dobby)
 target_link_libraries(${COMPILE_ID} PUBLIC dobby)
 
+add_compile_definitions(
+        MELON_SEED_EXPORT_SYMBOLS
+)
+
 # These definitions ensure IL2CPP doesnt cause build errors because we're not using MSVC on Windows
 if (WIN32)
     add_compile_definitions(
