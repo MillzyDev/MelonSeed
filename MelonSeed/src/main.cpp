@@ -1,7 +1,10 @@
 #define MELON_SEED_ENTRYPOINT extern "C" __declspec(dllexport)
 
+#include "logger.hpp"
+
 MELON_SEED_ENTRYPOINT void melon_seed_init() {
     // initialise logger
+    melonseed::logger::initialise_logger();
 
     // install other hooks (Scene loaded or smth, just some callbacks more or less)
 
