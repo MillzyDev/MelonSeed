@@ -31,6 +31,8 @@ ENDMACRO()
 file(READ game_path.txt GAME_PATH)
 file(READ unity_path.txt UNITY_PATH)
 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${GAME_PATH}/MelonSeed)
+
 RECURSE_FILES(cpp_file_list ${SOURCE_DIR}/*.cpp)
 RECURSE_FILES(c_file_list ${SOURCE_DIR}/*.c)
 
