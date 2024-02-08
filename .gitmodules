@@ -1,6 +1,6 @@
 [submodule "MelonSeed/Dobby"]
 	path = MelonSeed/Dobby
-	url = https://github.com/MillzyDev/Dobby.git
+	url = https://github.com/BepInEx/Dobby.git
 [submodule "MelonSeed/termcolor"]
 	path = MelonSeed/termcolor
 	url = https://github.com/ikalnytskyi/termcolor.git
