@@ -3,7 +3,6 @@
 
 #include <chrono>
 #include <iostream>
-#include <format>
 
 namespace melonseed {
     void logger::initialise_logger() {
