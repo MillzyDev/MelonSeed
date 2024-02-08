@@ -7,14 +7,41 @@
 #endif
 
 #include <fstream>
+#include <format>
+#include <string>
 
 namespace melonseed {
     class logger {
     private:
-        static bool is_initialised;
         static std::ofstream log_file_stream;
 
+        static void log_info(std::string name_section, std::string text);
+        static void log_warning(std::string name_section, std::string text);
+        static void log_error(std::string name_section, std::string text);
+
+        std::string name;
+
     public:
-        static void initialise_logger();
+        MELON_SEED_EXPORT explicit logger(std::string name);
+
+        MELON_SEED_EXPORT static void initialise_logger();
+
+        template<typename... Args>
+        inline void info(std::format_string<Args...> format, Args &&...args) {
+            std::string message = std::vformat(format.get(), std::make_format_args(args...));
+            log_info(name, message);
+        }
+
+        template<typename... Args>
+        inline void warning(std::format_string<Args...> format, Args &&...args) {
+            std::string message = std::vformat(format.get(), std::make_format_args(args...));
+            log_warning(name, message);
+        }
+
+        template<typename... Args>
+        inline void error(std::format_string<Args...> format, Args &&...args) {
+            std::string message = std::vformat(format.get(), std::make_format_args(args...));
+            log_error(name, message);
+        }
     };
 }
