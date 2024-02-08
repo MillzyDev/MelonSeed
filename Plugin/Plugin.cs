@@ -11,6 +11,8 @@ namespace MelonSeed
 
         public override void OnPreInitialization()
         {
+            _ = NativeLibrary.Load("MelonSeed/dobby.dll");
+            
             var melonSeed = NativeLibrary.Load("MelonSeed/MelonSeed.dll");
             _melonSeedInit = melonSeed.GetExport<Action>("melon_seed_init");
             _melonSeedStart = melonSeed.GetExport<Action>("melon_seed_start");
