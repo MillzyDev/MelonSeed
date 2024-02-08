@@ -42,6 +42,7 @@ MELON_SEED_ENTRYPOINT void melon_seed_init() {
     create_directories();
 
     // initialise logger
+    melonseed::logger::initialise_logger();
 
     // install other hooks (Scene loaded or smth, just some callbacks more or less)
 
