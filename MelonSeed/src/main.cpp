@@ -1,10 +1,21 @@
+#include "main.hpp"
 #include "files.hpp"
 #include "logger.hpp"
 
 #include <windows.h>
 #include <format>
 
+#include "dobby.h"
+
+#include "il2cpp-api.h"
+#include "il2cpp-class-internals.h"
+
 #define MELON_SEED_ENTRYPOINT extern "C" __declspec(dllexport)
+
+melonseed::logger get_logger() {
+    static melonseed::logger logger("MelonSeed");
+    return logger;
+}
 
 void create_directories() {
     std::filesystem::path directories[] = {
@@ -43,8 +54,7 @@ MELON_SEED_ENTRYPOINT void melon_seed_init() {
 
     // initialise logger
     melonseed::logger::initialise_logger();
-
-    // install other hooks (Scene loaded or smth, just some callbacks more or less)
+    get_logger().info("Logger initialised.");
 
     // open libraries
 
