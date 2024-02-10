@@ -46,7 +46,7 @@ void create_directories() {
                     "MelonSeed - Fatal Error",
                     MB_ICONERROR | MB_OK);
 
-            std::exit(EXIT_FAILURE);
+            std::abort();
         }
     }
 }
