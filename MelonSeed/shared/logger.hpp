@@ -15,9 +15,9 @@ namespace melonseed {
     private:
         static std::ofstream log_file_stream;
 
-        static void log_info(std::string name_section, std::string text);
-        static void log_warning(std::string name_section, std::string text);
-        static void log_error(std::string name_section, std::string text);
+        MELON_SEED_EXPORT static void log_info(std::string name_section, std::string text);
+        MELON_SEED_EXPORT static void log_warning(std::string name_section, std::string text);
+        MELON_SEED_EXPORT static void log_error(std::string name_section, std::string text);
 
         std::string name;
 
@@ -45,3 +45,5 @@ namespace melonseed {
         }
     };
 }
+
+#undef MELON_SEED_EXPORT
