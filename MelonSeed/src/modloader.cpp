@@ -20,7 +20,7 @@ namespace melonseed {
                 std::string message;
 
                 if (!error) {
-                    get_logger().error("Failed to load {} but no error was produced.", file_entry.path().string());
+                    get_logger().error("Failed to load library {} but no error was produced.", file_entry.path().string());
                 } else {
                     LPSTR message_buffer;
                     size_t size = FormatMessageA(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
