@@ -1,6 +1,8 @@
 #include "main.hpp"
 #include "files.hpp"
 #include "logger.hpp"
+#include "modloader.hpp"
+#include "modloader_internal.hpp"
 
 #include <windows.h>
 #include <format>
@@ -56,7 +58,7 @@ MELON_SEED_ENTRYPOINT void melon_seed_init() {
     melonseed::logger::initialise_logger();
     get_logger().info("Logger initialised.");
 
-    // open libraries
+    melonseed::open_libs(melonseed::files::get_libs_dir());
 
     // open mods
     // construct mods
