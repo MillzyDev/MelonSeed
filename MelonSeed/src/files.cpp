@@ -39,7 +39,6 @@ namespace melonseed::files {
 
     std::filesystem::path get_latest_log_file() {
         static std::filesystem::path file = get_melonseed_dir() / "latest.log";
-        std::cout << file.string() << std::endl;
         return  file;
     }
 }
