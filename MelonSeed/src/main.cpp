@@ -1,7 +1,6 @@
 #include "main.hpp"
 #include "files.hpp"
 #include "logger.hpp"
-#include "modloader.hpp"
 #include "modloader_internal.hpp"
 
 #include <windows.h>
