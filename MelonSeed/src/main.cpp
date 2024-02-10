@@ -54,15 +54,12 @@ void create_directories() {
 MELON_SEED_ENTRYPOINT void melon_seed_init() {
     create_directories();
 
-    // initialise logger
     melonseed::logger::initialise_logger();
     get_logger().info("Logger initialised.");
 
     melonseed::open_libs(melonseed::files::get_libs_dir());
 
-    // open mods
-    // construct mods
-    // load mods
+    melonseed::open_mods(melonseed::files::get_mods_dir());
 }
 
 MELON_SEED_ENTRYPOINT void melon_seed_start() {
