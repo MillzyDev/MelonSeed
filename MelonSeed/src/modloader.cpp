@@ -57,6 +57,8 @@ namespace melonseed {
                 handle
             });
         }
+
+        get_logger().info("Successfully loaded {} libraries. ({} failed)", modloader::get_libs().size(), modloader::get_failed_libs().size());
     }
 
     void open_mods(std::filesystem::path mods_dir) {
@@ -144,6 +146,8 @@ namespace melonseed {
             get_logger().info("Shared Object: {}", file_entry.path().filename().string());
             get_logger().info("------------------------------");
         }
+
+        get_logger().info("Successfully loaded {} mods. ({} failed)", modloader::get_mods().size(), modloader::get_failed_mods().size());
     }
 
     std::vector<lib_info> modloader::loaded_libs;
