@@ -145,4 +145,45 @@ namespace melonseed {
             get_logger().info("------------------------------");
         }
     }
+
+    std::vector<lib_info> modloader::loaded_libs;
+    std::vector<mod_info> modloader::loaded_mods;
+    std::vector<failed_lib> modloader::failed_libs;
+    std::vector<failed_lib> modloader::failed_mods;
+
+    bool modloader::get_mod_info(std::string mod_id, mod_info &info) {
+        return false;
+    }
+
+    std::vector<lib_info> modloader::get_libs() {
+        return modloader::loaded_libs;
+    }
+
+    std::vector<mod_info> modloader::get_mods() {
+        return modloader::loaded_mods;
+    }
+
+    std::vector<failed_lib> modloader::get_failed_libs() {
+        return modloader::failed_libs;
+    }
+
+    std::vector<failed_lib> modloader::get_failed_mods() {
+        return modloader::failed_mods;
+    }
+
+    void modloader::add_loaded_lib(lib_info lib) {
+        modloader::loaded_libs.push_back(lib);
+    }
+
+    void modloader::add_loaded_mod(mod_info mod) {
+        modloader::loaded_mods.push_back(mod);
+    }
+
+    void modloader::add_failed_lib(failed_lib lib) {
+        modloader::failed_libs.push_back(lib);
+    }
+
+    void modloader::add_failed_mod(failed_lib mod) {
+        modloader::failed_mods.push_back(mod);
+    }
 }
