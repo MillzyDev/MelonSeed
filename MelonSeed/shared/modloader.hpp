@@ -19,6 +19,7 @@ namespace melonseed {
         std::string id;
         std::string name;
         std::string version;
+        std::string author;
     } mod_metadata;
 
     using load_func = void (*)(mod_metadata *metadata);
@@ -65,7 +66,7 @@ namespace melonseed {
         MELON_SEED_EXPORT static std::vector<mod_info> get_mods();
         MELON_SEED_EXPORT static std::vector<failed_lib> get_failed_libs();
         MELON_SEED_EXPORT static std::vector<failed_lib> get_failed_mods();
-        
+
         /* THESE ARE NOT EXPORTED - DO NOT USE THEM */
         static void add_loaded_lib(lib_info lib);
         static void add_loaded_mod(mod_info mod);
