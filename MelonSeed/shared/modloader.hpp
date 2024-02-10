@@ -65,7 +65,8 @@ namespace melonseed {
         MELON_SEED_EXPORT static std::vector<mod_info> get_mods();
         MELON_SEED_EXPORT static std::vector<failed_lib> get_failed_libs();
         MELON_SEED_EXPORT static std::vector<failed_lib> get_failed_mods();
-
+        
+        /* THESE ARE NOT EXPORTED - DO NOT USE THEM */
         static void add_loaded_lib(lib_info lib);
         static void add_loaded_mod(mod_info mod);
         static void add_failed_lib(failed_lib lib);
