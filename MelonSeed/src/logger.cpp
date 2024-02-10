@@ -12,6 +12,7 @@ namespace melonseed {
     void logger::initialise_logger() {
         std::filesystem::path latest_log = files::get_latest_log_file();
 
+        // if there's a latest.log, we want to move it to the logs dir and rename it based on the last write time
         if (exists(latest_log)) {
             std::filesystem::file_time_type last_write = std::filesystem::last_write_time(latest_log);
             std::string log_file_name = std::format(
@@ -20,11 +21,11 @@ namespace melonseed {
                     );
 
             std::filesystem::path full_log_file_name = files::get_logs_dir() / log_file_name;
-            std::filesystem::rename(latest_log, full_log_file_name);
+            std::filesystem::rename(latest_log, full_log_file_name); // this can also move it, but the directory needs to exist.
         }
 
         log_file_stream = std::ofstream(latest_log);
-        log_file_stream << std::endl;
+        log_file_stream.flush(); // pretty sure this saves the file
     }
 
     void logger::log_info(std::string name_section, std::string text) {
