@@ -4,3 +4,6 @@
 [submodule "MelonSeed/termcolor"]
 	path = MelonSeed/termcolor
 	url = https://github.com/ikalnytskyi/termcolor.git
+[submodule "MelonSeed/capstone"]
+	path = MelonSeed/capstone
+	url = https://github.com/capstone-engine/capstone.git
