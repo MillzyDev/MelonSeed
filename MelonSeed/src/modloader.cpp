@@ -115,14 +115,7 @@ namespace melonseed {
             load(&metadata);
 
             start_func start = reinterpret_cast<start_func>(GetProcAddress(handle, "start"));
-            update_func update = reinterpret_cast<update_func>(GetProcAddress(handle, "update"));
-            fixed_update_func fixed_update = reinterpret_cast<fixed_update_func>(GetProcAddress(handle, "fixed_update"));
-            late_update_func late_update = reinterpret_cast<late_update_func>(GetProcAddress(handle, "late_update_func"));
-
             std::optional<start_func> start_opt = start ? std::optional<start_func>{start} : std::nullopt;
-            std::optional<update_func> update_opt = update ? std::optional<update_func>{update} : std::nullopt;
-            std::optional<fixed_update_func> fixed_update_opt = fixed_update ? std::optional<fixed_update_func>{fixed_update} : std::nullopt;
-            std::optional<late_update_func> late_update_opt = late_update ? std::optional<late_update_func>{late_update} : std::nullopt;
 
             mod_info info {
                 file_entry.path(),
@@ -131,9 +124,6 @@ namespace melonseed {
 
                 load,
                 start_opt,
-                update_opt,
-                fixed_update_opt,
-                late_update_opt,
 
                 handle
             };

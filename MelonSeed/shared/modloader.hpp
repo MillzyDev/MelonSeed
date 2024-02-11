@@ -26,9 +26,6 @@ namespace melonseed {
 
     using load_func = void (*)(mod_metadata *metadata);
     using start_func = void (*)();
-    using update_func = void (*)();
-    using fixed_update_func = void (*)();
-    using late_update_func = void (*)();
 
     typedef struct {
         std::filesystem::path location;
@@ -37,9 +34,6 @@ namespace melonseed {
 
         load_func load;
         std::optional<start_func> start;
-        std::optional<update_func> update;
-        std::optional<fixed_update_func> fixed_update;
-        std::optional<late_update_func> late_update;
 
         HMODULE handle;
     } mod_info;

@@ -2,7 +2,6 @@
 #include "files.hpp"
 #include "logger.hpp"
 #include "modloader_internal.hpp"
-#include "callbacks.hpp"
 
 #include <windows.h>
 #include <format>
@@ -58,10 +57,6 @@ MELON_SEED_ENTRYPOINT void melon_seed_init() {
 }
 
 MELON_SEED_ENTRYPOINT void melon_seed_start() {
-    // hook callbacks
-    melonseed::callbacks::register_callbacks();
-    melonseed::callbacks::install_callback_hooks();
-
     // start mods
     // ???
     // profit
