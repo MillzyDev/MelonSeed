@@ -13,6 +13,8 @@
 #define MELON_SEED_EXPORT
 #endif
 
+#define MELON_SEED_API extern "C" __declspec(dllexport)
+
 namespace melonseed {
 
     typedef struct {
@@ -75,3 +77,5 @@ namespace melonseed {
     };
 
 }
+
+#undef MELON_SEED_EXPORT
