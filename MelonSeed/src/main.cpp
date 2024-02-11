@@ -2,15 +2,10 @@
 #include "files.hpp"
 #include "logger.hpp"
 #include "modloader_internal.hpp"
+#include "callbacks.hpp"
 
 #include <windows.h>
 #include <format>
-
-#include "dobby.h"
-
-#include "il2cpp-api.h"
-#include "il2cpp-class-internals.h"
-#include "il2cpp-object-internals.h"
 
 #define MELON_SEED_ENTRYPOINT extern "C" __declspec(dllexport)
 
@@ -57,13 +52,6 @@ MELON_SEED_ENTRYPOINT void melon_seed_init() {
     melonseed::logger::initialise_logger();
     get_logger().info("Logger initialised.");
 
-    get_logger().info("");
-    get_logger().info("------------------------------");
-    get_logger().info("MelonSeed v0.1.0");
-    get_logger().info("by Millzy");
-    get_logger().info("------------------------------");
-    get_logger().info("");
-
     melonseed::open_libs(melonseed::files::get_libs_dir());
 
     melonseed::open_mods(melonseed::files::get_mods_dir());
@@ -71,6 +59,8 @@ MELON_SEED_ENTRYPOINT void melon_seed_init() {
 
 MELON_SEED_ENTRYPOINT void melon_seed_start() {
     // hook callbacks
+    melonseed::callbacks::register_callbacks();
+    melonseed::callbacks::install_callback_hooks();
 
     // start mods
     // ???
