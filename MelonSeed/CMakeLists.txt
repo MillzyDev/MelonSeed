@@ -56,6 +56,14 @@ target_compile_definitions(${COMPILE_ID} PUBLIC MELON_SEED_EXPORTS)
 add_subdirectory(Dobby)
 target_link_libraries(${COMPILE_ID} PUBLIC dobby)
 
+target_include_directories(${COMPILE_ID} PUBLIC "${UNITY_PATH}/Editor/Data/il2cpp/libil2cpp")
+target_link_libraries(${COMPILE_ID} PUBLIC "${GAME_PATH}/GameAssembly.dll")
+
+target_include_directories(${COMPILE_ID} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/termcolor/include")
+
+add_subdirectory(capstone)
+target_link_libraries(${COMPILE_ID} PUBLIC capstone)
+
 add_compile_definitions(
         MELON_SEED_EXPORT_SYMBOLS
 )
@@ -83,8 +91,3 @@ if (WIN32)
 else ()
 
 endif ()
-
-target_include_directories(${COMPILE_ID} PUBLIC "${UNITY_PATH}/Editor/Data/il2cpp/libil2cpp")
-target_link_libraries(${COMPILE_ID} PUBLIC "${GAME_PATH}/GameAssembly.dll")
-
-target_include_directories(${COMPILE_ID} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/termcolor/include")
