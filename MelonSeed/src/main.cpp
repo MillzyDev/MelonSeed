@@ -2,6 +2,7 @@
 #include "files.hpp"
 #include "logger.hpp"
 #include "modloader_internal.hpp"
+#include "modloader.hpp"
 
 #include <windows.h>
 #include <format>
@@ -57,7 +58,14 @@ MELON_SEED_ENTRYPOINT void melon_seed_init() {
 }
 
 MELON_SEED_ENTRYPOINT void melon_seed_start() {
-    // start mods
-    // ???
-    // profit
+    get_logger().info("Starting mods...");
+
+    for (melonseed::mod_info mod : melonseed::modloader::get_mods()) {
+        if (mod.start.has_value()) {
+            melonseed::start_func start = mod.start.value();
+            start();
+        }
+    }
+
+    get_logger().info("Finished setup!");
 }
