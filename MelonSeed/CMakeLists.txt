@@ -61,9 +61,6 @@ target_link_libraries(${COMPILE_ID} PUBLIC "${GAME_PATH}/GameAssembly.dll")
 
 target_include_directories(${COMPILE_ID} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/termcolor/include")
 
-add_subdirectory(capstone)
-target_link_libraries(${COMPILE_ID} PUBLIC capstone)
-
 add_compile_definitions(
         MELON_SEED_EXPORT_SYMBOLS
 )
